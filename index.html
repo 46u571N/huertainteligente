@@ -3,145 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maqueta Proyecto STEAM: Huerta Inteligente</title>
+    <title>Maqueta Mini-Proyecto STEAM: Análisis de Datos Huerta</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* Light green background similar to image */
+            background-color: #f3f4f6; /* Un gris muy claro para el fondo general */
+        }
+        .header-title {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #15803d; /* Verde oscuro principal */
+            text-align: center;
+            margin-bottom: 1rem; /* 16px */
+        }
+        .header-subtitle {
+            font-size: 1.125rem; /* 18px */
+            color: #374151; /* Gris oscuro para el subtítulo */
+            text-align: center;
+            max-width: 3xl; /* 768px */
+            margin: 0 auto 2.5rem auto; /* 40px bottom margin */
         }
         .section-title {
-            font-size: 2.5rem; /* 40px */
-            font-weight: 700;
-            color: #344e41; /* Dark green */
+            font-size: 1.875rem; /* 30px */
+            font-weight: 600;
+            color: #166534; /* Verde un poco más claro que el principal */
             text-align: center;
             margin-bottom: 2rem; /* 32px */
-            text-transform: uppercase;
         }
         .card {
             background-color: #ffffff;
             border-radius: 12px;
             padding: 24px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
-            height: 100%; /* Ensure cards in a row have same height */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .card-icon {
+            font-size: 2.5rem; /* 40px */
+            text-align: center;
+            margin-bottom: 1rem; /* 16px */
+            color: #10b981; /* Verde esmeralda para iconos */
         }
         .card-title {
             font-size: 1.25rem; /* 20px */
             font-weight: 600;
-            color: #3a5a40; /* Medium green */
+            color: #15803d;
             margin-bottom: 12px;
+            text-align: center;
         }
         .card-content {
             font-size: 0.9rem; /* 14.4px */
-            color: #588157; /* Lighter green for text */
+            color: #4b5563; /* Gris medio para el texto */
             flex-grow: 1;
+            line-height: 1.6;
         }
-        .persona-card {
-            background-color: #faebd7; /* Beige/Peach color similar to image */
+        .student-profile-card {
+            background-color: #ecfdf5; /* Verde muy pálido, casi blanco */
+            border: 1px solid #a7f3d0; /* Borde verde claro */
             border-radius: 12px;
             padding: 32px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
         }
-        .persona-name {
+        .student-name {
             font-size: 1.875rem; /* 30px */
             font-weight: 700;
-            color: #344e41;
+            color: #065f46; /* Verde oscuro intenso */
         }
-        .persona-subtitle {
+        .student-subtitle {
             font-size: 1rem; /* 16px */
-            color: #a3b18a; /* Muted green */
+            color: #047857; /* Verde medio */
             margin-bottom: 16px;
         }
-        .persona-section-title {
+        .student-section-title {
             font-size: 1.125rem; /* 18px */
             font-weight: 600;
-            color: #3a5a40;
+            color: #059669; /* Verde brillante */
             margin-top: 16px;
             margin-bottom: 8px;
         }
-        .persona-text {
+        .student-text {
             font-size: 0.9rem; /* 14.4px */
-            color: #588157;
+            color: #374151;
             line-height: 1.6;
         }
-        .highlight-text {
-            color: #e67e22; /* Orange for highlight, can be adjusted */
-            font-weight: 600;
+        .highlight-green { color: #10b981; font-weight: 500; }
+        .list-item {
+            margin-bottom: 0.3rem; /* 4.8px */
         }
-        .icon-placeholder {
-            font-size: 2rem; /* 32px */
-            margin-bottom: 0.5rem; /* 8px */
+        .list-item::before {
+            content: '✓';
+            color: #10b981; /* Verde esmeralda para viñetas */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
-        .positive { color: #2ecc71; } /* Green for positive aspects */
-        .negative { color: #e74c3c; } /* Red for challenges/frustrations */
     </style>
 </head>
-<body>
+<body class="antialiased">
     <div class="container mx-auto p-4 md:p-8">
 
         <header class="my-8 md:my-12">
-            <h1 class="section-title">
-                <span class="text-green-700">Huerta Inteligente</span> <span class="text-amber-600">Escolar</span>
-            </h1>
-            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto">
-                Cultivando Datos, Cosechando Conocimiento: Diseño, Monitoreo y Optimización de un Cultivo Escolar mediante Informática y Matemáticas.
+            <h1 class="header-title">Mini-Proyecto: Explorando Datos de la Huerta</h1>
+            <p class="header-subtitle">
+                Un primer análisis con Informática y Matemáticas para extraer significado de datos reales en un contexto escolar, fomentando la interacción con el contenido, la tecnología y los pares.
             </p>
         </header>
 
         <section class="mb-12 md:mb-16">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center text-green-800 mb-8">Pilares del Proyecto</h2>
+            <h2 class="section-title">Componentes Clave del Aprendizaje</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="card">
-                    <div class="text-center icon-placeholder text-blue-500">📊</div>
-                    <h3 class="card-title text-center">Análisis de Datos con Matemáticas</h3>
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Matemáticas Aplicadas</h3>
                     <p class="card-content">
-                        Los estudiantes aplicarán estadística para analizar el crecimiento de las plantas, optimizar el uso de recursos (agua, espacio) y modelar el rendimiento. Se utilizarán conceptos de geometría para el diseño eficiente de la huerta y porcentajes para calcular necesidades y proyecciones.
+                        Los estudiantes utilizarán estadística descriptiva básica (promedios, máximos, mínimos) para analizar datos concretos de la huerta. Se enfocarán en la interpretación de tablas y la comprensión de representaciones gráficas simples.
                     </p>
                     <div class="mt-4">
-                        <p class="text-sm font-semibold text-gray-700 mb-1">Resultados Esperados:</p>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">Conceptos Clave:</p>
                         <ul class="list-disc list-inside text-sm text-gray-600">
-                            <li>Interpretación de datos de crecimiento.</li>
-                            <li>Optimización espacial de cultivos.</li>
-                            <li>Modelos predictivos básicos.</li>
+                            <li>Promedio (Media Aritmética)</li>
+                            <li>Interpretación de Datos Tabulados</li>
+                            <li>Comprensión de Gráficos</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="text-center icon-placeholder text-purple-500">💻</div>
-                    <h3 class="card-title text-center">Monitoreo y Gestión con Informática</h3>
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Informática Práctica</h3>
                     <p class="card-content">
-                        Se implementarán herramientas informáticas para la recolección y gestión de datos (sensores opcionales, hojas de cálculo avanzadas). Se crearán dashboards para visualización en tiempo real y se desarrollará un blog para documentar el proyecto. El pensamiento computacional guiará la toma de decisiones.
+                        Se emplearán hojas de cálculo (Google Sheets, Excel, etc.) para organizar datos, aplicar fórmulas básicas (SUMA, PROMEDIO) y generar gráficos sencillos. Se practicará la gestión básica de archivos digitales.
                     </p>
                      <div class="mt-4">
-                        <p class="text-sm font-semibold text-gray-700 mb-1">Herramientas Clave:</p>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">Habilidades Desarrolladas:</p>
                         <ul class="list-disc list-inside text-sm text-gray-600">
-                            <li>Hojas de Cálculo (Google Sheets/Excel).</li>
-                            <li>Plataformas de visualización (Google Data Studio).</li>
-                            <li>(Opcional) Arduino/Raspberry Pi para sensores.</li>
+                            <li>Uso de Fórmulas en Hojas de Cálculo</li>
+                            <li>Creación de Gráficos (Barras, Líneas)</li>
+                            <li>Organización de Datos</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="card">
-                     <div class="text-center icon-placeholder text-teal-500">🌱</div>
-                    <h3 class="card-title text-center">Diseño, Ingeniería y Sostenibilidad</h3>
+                     <div class="card-icon">🤝</div>
+                    <h3 class="card-title">Interacción y Colaboración</h3>
                     <p class="card-content">
-                        Aplicando principios de ingeniería y diseño, los alumnos construirán la huerta, sistemas de riego simples y prototipos para optimizar recursos. Se investigarán prácticas de agricultura sostenible, promoviendo la conciencia ambiental y la conexión con el ciclo de vida de los alimentos.
+                        El proyecto se basa en el aprendizaje activo. Los alumnos interactuarán con el contenido (datos), la tecnología (hojas de cálculo) y, fundamentalmente, con sus pares y el docente para construir conocimiento de forma colaborativa.
                     </p>
                     <div class="mt-4">
-                        <p class="text-sm font-semibold text-gray-700 mb-1">Impacto:</p>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">Enfoque Pedagógico:</p>
                         <ul class="list-disc list-inside text-sm text-gray-600">
-                            <li>Soluciones creativas a problemas reales.</li>
-                            <li>Conciencia sobre producción sostenible.</li>
-                            <li>Desarrollo de habilidades prácticas.</li>
+                            <li>Aprendizaje Basado en Problemas</li>
+                            <li>Trabajo en Equipo</li>
+                            <li>Rol Docente Facilitador</li>
                         </ul>
                     </div>
                 </div>
@@ -149,52 +172,61 @@
         </section>
 
         <section class="mb-12 md:mb-16">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center text-green-800 mb-8">El Estudiante como Protagonista</h2>
-            <div class="persona-card max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <h2 class="section-title">El Estudiante como Explorador de Datos</h2>
+            <div class="student-profile-card max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-1 flex justify-center">
-                    <img src="https://placehold.co/200x200/a3b18a/344e41?text=Estudiante+STEAM" alt="Estudiante STEAM" class="rounded-full shadow-lg w-40 h-40 md:w-48 md:h-48 object-cover">
+                    <img src="https://placehold.co/200x200/d1fae5/065f46?text=Equipo+Analista" alt="Estudiante Explorador" class="rounded-full shadow-lg w-40 h-40 md:w-48 md:h-48 object-cover border-4 border-white">
                 </div>
                 <div class="md:col-span-2">
-                    <h3 class="persona-name">Equipo "Eco-Innovadores"</h3>
-                    <p class="persona-subtitle">Estudiantes de Ciclo Superior</p>
-                    <p class="italic text-gray-700 mb-4">"Aplicamos ciencia y tecnología para crear un futuro más verde y sostenible desde nuestra escuela."</p>
+                    <h3 class="student-name">Equipo "Analistas de la Huerta"</h3>
+                    <p class="student-subtitle">Ciclo Medio/Superior de Secundaria</p>
+                    <p class="italic text-gray-700 mb-4">"Usamos números y computadoras para descubrir las historias que esconden los datos de nuestra huerta."</p>
 
                     <div>
-                        <h4 class="persona-section-title">Biografía del Equipo:</h4>
-                        <p class="persona-text">
-                            Somos un grupo de estudiantes curiosos y comprometidos, listos para enfrentar el desafío de la "Huerta Inteligente". Nos apasiona aprender haciendo, conectar los conocimientos del aula con problemas reales y trabajar en equipo para encontrar soluciones innovadoras que beneficien a nuestra comunidad y al medio ambiente.
+                        <h4 class="student-section-title">Misión del Equipo (Problema a Resolver):</h4>
+                        <p class="student-text">
+                            Nuestra misión es tomar un conjunto limitado de datos de la huerta (ej. crecimiento de tomates y temperatura) y, usando hojas de cálculo, responder preguntas como: <span class="highlight-green">"¿Cuál fue la temperatura promedio?"</span> o <span class="highlight-green">"¿Hay alguna relación visible entre el crecimiento y la temperatura?"</span>.
                         </p>
 
-                        <h4 class="persona-section-title">Metas en el Proyecto:</h4>
-                        <ul class="persona-text list-disc list-inside space-y-1">
-                            <li><span class="positive">✓</span> Dominar herramientas de análisis de datos y aplicarlas a un sistema vivo.</li>
-                            <li><span class="positive">✓</span> Desarrollar habilidades de diseño, programación básica y gestión de proyectos.</li>
-                            <li><span class="positive">✓</span> Comprender a fondo el ciclo de los alimentos y la importancia de la agricultura sostenible.</li>
-                            <li><span class="positive">✓</span> Comunicar efectivamente nuestros hallazgos y promover la conciencia ambiental.</li>
+                        <h4 class="student-section-title">Objetivos de Aprendizaje:</h4>
+                        <ul class="student-text list-none pl-5 space-y-1">
+                            <li class="list-item">Interactuar activamente con datos para extraer información.</li>
+                            <li class="list-item">Usar hojas de cálculo para organizar datos y realizar cálculos.</li>
+                            <li class="list-item">Generar gráficos sencillos para visualizar patrones.</li>
+                            <li class="list-item">Colaborar con compañeros para analizar y concluir.</li>
+                            <li class="list-item">Comunicar los hallazgos de forma clara.</li>
                         </ul>
 
-                        <h4 class="persona-section-title">Desafíos que Abordamos (Frustraciones del Problema):</h4>
-                         <ul class="persona-text list-disc list-inside space-y-1">
-                            <li><span class="negative">✗</span> Desconexión con el origen de los alimentos y los procesos naturales.</li>
-                            <li><span class="negative">✗</span> Percepción de que la tecnología y la naturaleza están separadas.</li>
-                            <li><span class="negative">✗</span> Falta de espacios prácticos para aplicar conocimientos científicos y técnicos.</li>
-                        </ul>
-
-                        <h4 class="persona-section-title">Motivaciones:</h4>
-                        <ul class="persona-text list-disc list-inside space-y-1">
-                            <li>✨ Crear un impacto positivo tangible en nuestro entorno escolar.</li>
-                            <li>💡 Aprender de forma interdisciplinaria, combinando matemáticas, informática, ciencias y diseño.</li>
-                            <li>🤝 Colaborar, compartir ideas y construir conocimiento juntos.</li>
-                            <li>🌍 Contribuir, aunque sea a pequeña escala, a un futuro más sostenible.</li>
-                        </ul>
+                        <h4 class="student-section-title">Lo que nos Impulsa (Foco Pedagógico):</h4>
+                         <p class="student-text">
+                            Nos motiva la idea de que las matemáticas y la informática no son solo teoría, sino herramientas poderosas para entender el mundo. Queremos aprender haciendo, trabajando juntos y viendo cómo la tecnología nos ayuda a descubrir cosas nuevas a partir de datos simples de nuestro entorno.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="text-center py-8 border-t border-green-200">
-            <p class="text-gray-600 text-sm">Proyecto STEAM: Huerta Inteligente Escolar &copy; 2025</p>
-            <p class="text-gray-500 text-xs mt-1">Una iniciativa para cultivar el futuro.</p>
+        <section class="mb-12 md:mb-16">
+            <h2 class="section-title">Desarrollo del Mini-Proyecto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="card">
+                    <h3 class="card-title">Clase 1: Inmersión</h3>
+                    <p class="card-content">Introducción al problema y al dataset. Exploración inicial de la hoja de cálculo. Formulación colaborativa del plan de análisis.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Clase 2: Análisis</h3>
+                    <p class="card-content">Trabajo en grupos: limpieza básica de datos (si es necesaria), cálculos matemáticos, creación de gráficos simples. Interacción constante.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Clase 3: Conclusión</h3>
+                    <p class="card-content">Interpretación de resultados, elaboración de conclusiones y preparación de una mini-presentación para compartir hallazgos. Reflexión.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-8 border-t border-gray-200">
+            <p class="text-gray-600 text-sm">Mini-Proyecto IM: Análisis de Datos Huerta &copy; 2025</p>
+            <p class="text-gray-500 text-xs mt-1">Fomentando la curiosidad y el análisis crítico con recursos accesibles.</p>
         </footer>
 
     </div>
